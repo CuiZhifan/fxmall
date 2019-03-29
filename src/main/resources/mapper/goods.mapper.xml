@@ -79,12 +79,12 @@
     </select>
 
     <insert id="insertGoods">
-        INSERT INTO `wxb_good` VALUES (#{goodId}, #{goodName},
-        #{customerId},#{goodPic}, #{goodPic1}, #{goodPic2},#{promoteDesc},
-        #{skuTitle}, #{skuCost}, #{skuPrice},#{skuPmoney}, #{copyIds},
-        #{copyDesc}, #{forwardLink},#{orderNo}, #{typeId}, #{tags},#{state},
-        #{createTime}, #{toped}, #{recomed}, #{topedTime}, #{recomedTime},
-        #{spcId}, #{zonId}, #{sellNum}, #{website}, #{iswxpay}, #{isfdfk},
-        #{leixingId}, #{kfqq});
+        INSERT INTO `wxb_good` VALUES (#{wxbGood.goodId}, #{wxbGood.goodName},
+        #{wxbGood.customerId},#{wxbGood.goodPic}, #{wxbGood.goodPic1}, #{wxbGood.goodPic2},#{wxbGood.promoteDesc},
+        #{wxbGood.skuTitle}, #{wxbGood.skuCost}, #{wxbGood.skuPrice},#{wxbGood.skuPmoney}, #{wxbGood.copyIds},
+        #{wxbGood.copyDesc}, #{wxbGood.forwardLink},#{wxbGood.orderNo}, #{wxbGood.typeId}, #{wxbGood.tags},#{wxbGood.state},
+        #{wxbGood.createTime}, #{wxbGood.toped}, #{wxbGood.recomed}, #{wxbGood.topedTime}, #{wxbGood.recomedTime},
+        #{wxbGood.spcId}, #{wxbGood.zonId}, #{wxbGood.sellNum}, #{wxbGood.website}, #{wxbGood.iswxpay}, #{wxbGood.isfdfk},
+        #{wxbGood.leixingId}, #{wxbGood.kfqq});
     </insert>
 </mapper>

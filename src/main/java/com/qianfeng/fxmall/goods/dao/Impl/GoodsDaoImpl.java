@@ -5,6 +5,7 @@ import com.qianfeng.fxmall.commons.mybatis.MyBatisSessionFactoryUtils;
 import com.qianfeng.fxmall.goods.bean.WxbGood;
 import com.qianfeng.fxmall.goods.dao.IGoodsDAO;
 import com.qianfeng.fxmall.goods.mapper.GoodsMapper;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
@@ -19,7 +20,9 @@ public class GoodsDaoImpl implements IGoodsDAO {
 
     @Override
     public void insertGoods(WxbGood wxbGood) throws Exception {
-        GoodsMapper goodsMapper = MyBatisSessionFactoryUtils.getSession().getMapper(GoodsMapper.class);
+        SqlSession session = MyBatisSessionFactoryUtils.getSession();
+        GoodsMapper goodsMapper = session.getMapper(GoodsMapper.class);
         goodsMapper.insertGoods(wxbGood);
+        session.commit();
     }
 }

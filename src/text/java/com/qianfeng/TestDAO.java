@@ -1,23 +1,40 @@
 package com.qianfeng;
 
 import com.qianfeng.fxmall.goods.bean.WxbGood;
+import com.qianfeng.fxmall.goods.dao.IGoodsDAO;
+import com.qianfeng.fxmall.goods.dao.Impl.GoodsDaoImpl;
 import org.junit.Test;
 
+import java.util.Date;
+import java.util.UUID;
 
 
 public class TestDAO {
-    public int A(int n){
-        if(n==1||n==2){
-            return 1;
-        }else{
-            int x = A(n-2)+A(n-1);
-            return  x;
-        }
-    }
+
     @Test
-    public void test(){
-        for(int i=1;i<30;i++){
-            System.out.print(A(i)+",");
+    public void testinsert(){
+        WxbGood wxbGood = new WxbGood();
+        wxbGood.setGoodId(UUID.randomUUID().toString().replace("-","").substring(0,10));
+        wxbGood.setGoodName("代码");
+        wxbGood.setGoodPic("1.jpg");
+        wxbGood.setGoodPic1("2.jpg");
+        wxbGood.setGoodPic2("3.jpg");
+        wxbGood.setPromoteDesc("掉一根头发月薪+1块");
+        wxbGood.setSkuTitle("用生命敲代码");
+        wxbGood.setSkuCost("生命还不够吗");
+        wxbGood.setSkuPrice("升职加薪赢取白富美");
+        wxbGood.setSkuPmoney("二手白富美");
+        wxbGood.setTypeId(UUID.randomUUID().toString().replace("-","").substring(0,10));
+        wxbGood.setState(0);
+        java.sql.Timestamp time = new java.sql.Timestamp(System.currentTimeMillis());
+        wxbGood.setCreateTime(time);
+        wxbGood.setToped(0);
+        wxbGood.setRecomed(0);
+        IGoodsDAO Dao = new GoodsDaoImpl();
+        try {
+            Dao.insertGoods(wxbGood);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

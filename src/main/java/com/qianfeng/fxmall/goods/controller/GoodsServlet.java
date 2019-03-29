@@ -18,7 +18,12 @@ public class GoodsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pageStr = req.getParameter("page");
-        List<WxbGood> goods = service.queryGoodsByPage(Integer.parseInt(pageStr == null ? "0" : pageStr));
+        List<WxbGood> goods = null;
+        try {
+            goods = service.queryGoodsByPage(Integer.parseInt(pageStr == null ? "0" : pageStr));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         req.setAttribute("goodsList",goods);
         req.getRequestDispatcher("goods_list.jsp").forward(req,resp);
     }
