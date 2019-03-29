@@ -5,7 +5,7 @@ import com.qianfeng.fxmall.goods.bean.WxbGood;
 import java.util.List;
 
 public interface IGoodsService {
-    List<WxbGood> queryGoodsByPage(Integer page);
+    List<WxbGood> queryGoodsByPage(Integer page) throws Exception;
 
     void insertGoods(WxbGood wxbGood);
 }

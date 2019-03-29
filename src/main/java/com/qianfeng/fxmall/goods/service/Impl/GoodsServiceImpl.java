@@ -12,14 +12,10 @@ public class GoodsServiceImpl implements IGoodsService {
     IGoodsDAO dao = new GoodsDaoImpl();
 
     @Override
-    public List<WxbGood> queryGoodsByPage(Integer page) {
+    public List<WxbGood> queryGoodsByPage(Integer page) throws Exception {
         List<WxbGood> list = null;
         if (page<1)page=1;
-        try {
-            list = dao.queryGoodsByPage(page);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        list = dao.queryGoodsByPage(page);
         return list;
     }
 

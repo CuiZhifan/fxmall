@@ -13,26 +13,26 @@ public class MyBatisSessionFactoryUtils {
     private static ThreadLocal<SqlSession> threadLocal = new ThreadLocal<>();
 
     static {
-        initSessionFactory();
-    }
-
-    private static void initSessionFactory(){
         try {
-            InputStream inputStream = Resources.getResourceAsStream("mybatis.cfg.xml");
-            sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        } catch (IOException e) {
+            initSessionFactory();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static SqlSessionFactory getSqlSessionFactory(){
+    private static void initSessionFactory() throws Exception {
+            InputStream inputStream = Resources.getResourceAsStream("mybatis.cfg.xml");
+            sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+    }
+
+    public static SqlSessionFactory getSqlSessionFactory() throws Exception {
         if (sessionFactory == null) {
             initSessionFactory();
         }
         return sessionFactory;
     }
 
-    public static SqlSession getSession(){
+    public static SqlSession getSession() throws Exception {
         SqlSession session = threadLocal.get();
         if (session == null){
             session = getSqlSessionFactory().openSession();

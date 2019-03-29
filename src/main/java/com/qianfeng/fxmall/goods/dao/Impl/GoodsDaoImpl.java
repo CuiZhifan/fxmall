@@ -10,16 +10,16 @@ import java.util.List;
 
 public class GoodsDaoImpl implements IGoodsDAO {
 
-    static GoodsMapper goodsMapper = MyBatisSessionFactoryUtils.getSession().getMapper(GoodsMapper.class);
-
     @Override
     public List<WxbGood> queryGoodsByPage(Integer page) throws Exception{
+        GoodsMapper goodsMapper = MyBatisSessionFactoryUtils.getSession().getMapper(GoodsMapper.class);
         List<WxbGood> goods = goodsMapper.queryGoodsByPage(page, SystemConstantsUtils.Page.PAGE_SIZE);
         return goods;
     }
 
     @Override
     public void insertGoods(WxbGood wxbGood) throws Exception {
+        GoodsMapper goodsMapper = MyBatisSessionFactoryUtils.getSession().getMapper(GoodsMapper.class);
         goodsMapper.insertGoods(wxbGood);
     }
 }
