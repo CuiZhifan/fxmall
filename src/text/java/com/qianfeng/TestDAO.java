@@ -4,8 +4,6 @@ import com.qianfeng.fxmall.goods.bean.WxbGood;
 import com.qianfeng.fxmall.goods.dao.IGoodsDAO;
 import com.qianfeng.fxmall.goods.dao.Impl.GoodsDaoImpl;
 import org.junit.Test;
-
-import java.util.Date;
 import java.util.UUID;
 
 
