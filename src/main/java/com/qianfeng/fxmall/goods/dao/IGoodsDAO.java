@@ -1,6 +1,7 @@
 package com.qianfeng.fxmall.goods.dao;
 
 import com.qianfeng.fxmall.goods.bean.WxbGood;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,4 +19,10 @@ public interface IGoodsDAO {
      * @param wxbGood 需要添加的商品类
      */
     void insertGoods(WxbGood wxbGood) throws Exception;
+
+    /**
+     * 删除
+     * @param goodId    商品Id
+     */
+    void deleteGoods(@Param("goodId") String goodId) throws Exception;
 }

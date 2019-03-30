@@ -35,4 +35,13 @@ public class TestDAO {
             e.printStackTrace();
         }
     }
+    @Test
+    public void testDelete(){
+        IGoodsDAO Dao = new GoodsDaoImpl();
+        try {
+            Dao.deleteGoods("44671132");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

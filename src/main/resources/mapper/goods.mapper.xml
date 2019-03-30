@@ -87,4 +87,8 @@
         #{wxbGood.spcId}, #{wxbGood.zonId}, #{wxbGood.sellNum}, #{wxbGood.website}, #{wxbGood.iswxpay}, #{wxbGood.isfdfk},
         #{wxbGood.leixingId}, #{wxbGood.kfqq});
     </insert>
+
+    <delete id="deleteGoods">
+        delete from `wxb_good` where good_id = #{goodId};
+    </delete>
 </mapper>
