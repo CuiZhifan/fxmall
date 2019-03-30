@@ -11,6 +11,6 @@ public class SystemConstantsUtils {
         /**
          * 每页显示数量
          */
-        public final static Integer PAGE_SIZE = 3;
+        public final static Integer PAGE_SIZE = 5;
     }
 }
