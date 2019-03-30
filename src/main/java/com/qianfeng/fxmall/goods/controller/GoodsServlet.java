@@ -1,22 +1,21 @@
 package com.qianfeng.fxmall.goods.controller;
 
+import com.qianfeng.fxmall.commons.Servlet.BaseServlet;
 import com.qianfeng.fxmall.goods.bean.WxbGood;
 import com.qianfeng.fxmall.goods.service.IGoodsService;
 import com.qianfeng.fxmall.goods.service.Impl.GoodsServiceImpl;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class GoodsServlet extends HttpServlet {
+public class GoodsServlet extends BaseServlet {
 
     IGoodsService service = new GoodsServiceImpl();
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void selectGoods(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String pageStr = req.getParameter("page");
         List<WxbGood> goods = null;
         try {
@@ -25,13 +24,10 @@ public class GoodsServlet extends HttpServlet {
             e.printStackTrace();
         }
         req.setAttribute("goodsList",goods);
-        req.getRequestDispatcher("goods_list.jsp").forward(req,resp);
+        req.getRequestDispatcher("goods/goods_list.jsp").forward(req,resp);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+    public void addGoods(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
     }
-
-
 }
