@@ -25,4 +25,10 @@ public interface GoodsMapper {
      * @param goodId 商品对应的ID
      */
     void deleteGoods(@Param("goodId") String goodId);
+
+    /**
+     * 更新商品
+     * @param wxbGood   更新对象
+     */
+    void updateGoods(WxbGood wxbGood);
 }

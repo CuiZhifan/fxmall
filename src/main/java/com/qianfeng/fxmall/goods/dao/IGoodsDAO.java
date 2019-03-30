@@ -25,4 +25,10 @@ public interface IGoodsDAO {
      * @param goodId    商品Id
      */
     void deleteGoods(@Param("goodId") String goodId) throws Exception;
+
+    /**
+     * 更新
+     * @param wxbGood   更新的商品
+     */
+    void updateGoods(WxbGood wxbGood) throws Exception;
 }

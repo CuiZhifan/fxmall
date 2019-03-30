@@ -33,4 +33,12 @@ public class GoodsDaoImpl implements IGoodsDAO {
         goodsMapper.deleteGoods(goodId);
         session.commit();
     }
+
+    @Override
+    public void updateGoods(WxbGood wxbGood) throws Exception {
+        SqlSession session = MyBatisSessionFactoryUtils.getSession();
+        GoodsMapper goodsMapper = session.getMapper(GoodsMapper.class);
+        goodsMapper.updateGoods(wxbGood);
+        session.commit();
+    }
 }

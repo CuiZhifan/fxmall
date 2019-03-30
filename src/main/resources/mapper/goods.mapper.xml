@@ -91,4 +91,14 @@
     <delete id="deleteGoods">
         delete from `wxb_good` where good_id = #{goodId};
     </delete>
+
+    <update id="updateGoods">
+        update `wxb_good` set good_name = #{goodName},customer_id = #{customerId},good_pic = #{goodPic},
+        good_pic1 = #{goodPic1},good_pic2 = #{goodPic2},promote_Desc = #{promoteDesc},sku_Title = #{skuTitle},sku_Cost = #{skuCost},
+        sku_Price = #{skuPrice},sku_Pmoney = #{skuPmoney},copy_Ids = #{copyIds},copy_Desc = #{copyDesc},forward_Link = #{forwardLink},
+        order_No = #{orderNo},type_Id = #{typeId},tags = #{tags},state = #{state},create_Time = #{createTime},
+        toped = #{toped},recomed = #{recomed},toped_Time = #{topedTime},recomed_Time = #{recomedTime},spc_Id = #{spcId},
+        zon_Id = #{zonId},sell_Num = #{sellNum},website = #{website},iswxpay = #{iswxpay},isfdfk = #{isfdfk},
+        leixing_Id = #{leixingId},kfqq = #{kfqq} where good_Id = #{goodId};
+    </update>
 </mapper>
