@@ -5,11 +5,12 @@
   Time: 11:32
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<base href="${basePath}">
 <!-- saved from url=(0036)http://localhost:8081/cust/goods/add -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../static/default.css" rel="stylesheet" id="lhgdialoglink">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="static/default.css" rel="stylesheet" id="lhgdialoglink">
 
     <title>商品管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,37 +18,37 @@
 
     <link rel="shortcut icon" href="http://localhost:8081/wxb/images/favicon.ico">
     <link rel="icon" type="image/gif" href="http://localhost:8081/wxb/images/favicon.gif">
-    <link href="../static/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/font-awesome.min.css">
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/font-awesome.min.css">
     <!--[if IE 7]>
     <link rel="stylesheet" href="/customer/assets/css/font-awesome-ie7.min.css" />
     <![endif]-->
-    <link rel="stylesheet" href="../static/font.css">
-    <link rel="stylesheet" href="../static/ace.min.css">
-    <link rel="stylesheet" href="../static/ace-rtl.min.css">
-    <link rel="stylesheet" href="../static/jquery-ui-1.10.3.custom.min.css">
-    <link rel="stylesheet" href="../static/jquery.gritter.css">
+    <link rel="stylesheet" href="static/font.css">
+    <link rel="stylesheet" href="static/ace.min.css">
+    <link rel="stylesheet" href="static/ace-rtl.min.css">
+    <link rel="stylesheet" href="static/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="static/jquery.gritter.css">
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="/customer/assets/css/ace-ie.min.css" />
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="../static/public.css">
+    <link type="text/css" rel="stylesheet" href="static/public.css">
 
-    <script src="../static/ace-extra.min.js"></script>
+    <script src="static/ace-extra.min.js"></script>
     <!--[if lt IE 9]>
     <script src="/customer/assets/js/html5shiv.js"></script>
     <script src="/customer/assets/js/respond.min.js"></script>
     <![endif]-->
 
     <!-- 系统共用js文件 -->
-    <link rel="stylesheet" type="text/css" href="../static/ymPrompt.css">
-    <script type="text/javascript" src="../static/ymPrompt.js"></script>
-    <script type="text/javascript" src="../static/public.js"></script>
-    <script type="text/javascript" src="../static/publics.js"></script>
-    <script type="text/javascript" src="../static/table.js"></script>
-    <script type="text/javascript" src="../static/vdata.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/ymPrompt.css">
+    <script type="text/javascript" src="static/ymPrompt.js"></script>
+    <script type="text/javascript" src="static/public.js"></script>
+    <script type="text/javascript" src="static/publics.js"></script>
+    <script type="text/javascript" src="static/table.js"></script>
+    <script type="text/javascript" src="static/vdata.js"></script>
 
     <!-- head over-->
-    <link href="../static/WdatePicker.css" rel="stylesheet" type="text/css"></head>
+    <link href="static/WdatePicker.css" rel="stylesheet" type="text/css"></head>
 
 <body style=""><div class="" style="left: 0px; top: 0px; visibility: hidden; position: absolute;"><table class="ui_border"><tbody><tr><td class="ui_lt"></td><td class="ui_t"></td><td class="ui_rt"></td></tr><tr><td class="ui_l"></td><td class="ui_c"><div class="ui_inner"><table class="ui_dialog"><tbody><tr><td colspan="2"><div class="ui_title_bar"><div class="ui_title" unselectable="on" style="cursor: move;"></div><div class="ui_title_buttons"><a class="ui_min" href="javascript:void(0);" title="最小化" style="display: inline-block;"><b class="ui_min_b"></b></a><a class="ui_max" href="javascript:void(0);" title="最大化" style="display: inline-block;"><b class="ui_max_b"></b></a><a class="ui_res" href="javascript:void(0);" title="还原"><b class="ui_res_b"></b><b class="ui_res_t"></b></a><a class="ui_close" href="javascript:void(0);" title="关闭(esc键)" style="display: inline-block;">×</a></div></div></td></tr><tr><td class="ui_icon" style="display: none;"></td><td class="ui_main" style="width: auto; height: auto;"><div class="ui_content" style="padding: 10px;"></div></td></tr><tr><td colspan="2"><div class="ui_buttons" style="display: none;"></div></td></tr></tbody></table></div></td><td class="ui_r"></td></tr><tr><td class="ui_lb"></td><td class="ui_b"></td><td class="ui_rb" style="cursor: se-resize;"></td></tr></tbody></table></div>
 <div class="navbar navbar-default" id="navbar">
@@ -72,7 +73,7 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="http://localhost:8081/cust/goods/add#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="../static/user.jpg" alt="Jason's Photo">
+                        <img class="nav-user-photo" src="static/user.jpg" alt="Jason's Photo">
                         <span class="user-info">
 									<small>欢迎您,</small>
 									123456
@@ -457,7 +458,7 @@
                     </h1>
                 </div>
 
-                <form method="post" name="copy_form" id="copy_form" action="http://localhost:8081/cust/goods/add" enctype="multipart/form-data">
+                <form method="post" name="copy_form" id="copy_form" action="goods.do?m=addGoods" enctype="multipart/form-data">
                     <div class="widget-main">
                         <input type="hidden" id="sku_str" name="sku_str" value="">
                         <input type="hidden" id="ctype" name="ctype" value="custGood">
@@ -480,7 +481,7 @@
                                     <span class="red">*</span><strong>商品名称：</strong>
                                 </td>
                                 <td>
-                                    <input type="text" id="good_name" name="good_name" value="">
+                                    <input type="text" id="good_name" name="good_name" value="${goods.goodName}">
                                 </td>
 
                             </tr>
@@ -489,8 +490,39 @@
                                 <td align="right"><span class="red">*</span><strong>商品类型：</strong></td>
                                 <td>
                                     <select name="type_id" id="type_id" style="width:252px;font-size:14px" class="selectBox">
-                                        <option value="">请选择...</option>
-
+                                        <c:choose>
+                                            <c:when test="${goods==null}">
+                                                <option value="">请选择...</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option value="${goods.typeId}">
+                                                    <c:if test="${goods.typeId}==01">
+                                                        保健品
+                                                    </c:if>
+                                                    <c:if test="${goods.typeId}==01">
+                                                        饰品
+                                                    </c:if>
+                                                    <c:if test="${goods.typeId}==01">
+                                                        护肤品
+                                                    </c:if>
+                                                    <c:if test="${goods.typeId}==01">
+                                                        床上用品
+                                                    </c:if>
+                                                    <c:if test="${goods.typeId}==01">
+                                                        生活用品
+                                                    </c:if>
+                                                    <c:if test="${goods.typeId}==01">
+                                                        减肥产品
+                                                    </c:if>
+                                                    <c:if test="${goods.typeId}==01">
+                                                        113
+                                                    </c:if>
+                                                    <c:if test="${goods.typeId}==01">
+                                                        23
+                                                    </c:if>
+                                                </option>
+                                            </c:otherwise>
+                                        </c:choose>
 
                                         <option value="01">保健品</option>
 
@@ -515,13 +547,13 @@
                             <tr>
                                 <td align="right"><span class="red">*</span><strong>排序编号：</strong></td>
                                 <td>
-                                    <input type="text" id="order_no" name="order_no" onkeyup="checkVal2(this);" value="">
+                                    <input type="text" id="order_no" name="order_no" onkeyup="checkVal2(this);" value="${goods.orderNo}">
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right"><span class="red">*</span><strong>购买作弊值：</strong></td>
                                 <td>
-                                    <input type="text" id="sell_num" name="sell_num" onkeyup="checkVal2(this);" value="">
+                                    <input type="text" id="sell_num" name="sell_num" onkeyup="checkVal2(this);" value="${goods.sellNum}">
                                 </td>
                             </tr>
                             <tr>
@@ -538,7 +570,7 @@
                             <tr>
                                 <td align="right"><span class="red">*</span><strong>上传图片：</strong></td>
                                 <td>
-                                    <input type="file" name="uploadGood" id="smfile&quot;" style="width:540px;height:22px;cursor:hand" class="fileinput" onchange="checkImgType(this);setPreview(this,'sm_yl','sm_div',240,150);">
+                                    <input type="file" name="uploadGood" id="smfile" style="width:540px;height:22px;cursor:hand" class="fileinput" onchange="checkImgType(this);setPreview(this,'sm_yl','sm_div',240,150);">
                                 </td>
                             </tr>
 
@@ -556,7 +588,7 @@
                             <tr>
                                 <td align="right"><span class="red">*</span><strong>上传图片2：</strong></td>
                                 <td>
-                                    <input type="file" name="uploadGood" id="smfile1&quot;" style="width:540px;height:22px;cursor:hand" class="fileinput" onchange="checkImgType(this);setPreview(this,'sm_yl1','sm_div1',240,150);">
+                                    <input type="file" name="uploadGood" id="smfile1" style="width:540px;height:22px;cursor:hand" class="fileinput" onchange="checkImgType(this);setPreview(this,'sm_yl1','sm_div1',240,150);">
                                 </td>
                             </tr>
 
@@ -574,14 +606,14 @@
                             <tr>
                                 <td align="right"><span class="red">*</span><strong>上传图片3：</strong></td>
                                 <td>
-                                    <input type="file" name="uploadGood" id="smfile2&quot;" style="width:540px;height:22px;cursor:hand" class="fileinput" onchange="checkImgType(this);setPreview(this,'sm_yl2','sm_div2',240,150);">
+                                    <input type="file" name="uploadGood" id="smfile2" style="width:540px;height:22px;cursor:hand" class="fileinput" onchange="checkImgType(this);setPreview(this,'sm_yl2','sm_div2',240,150);">
                                 </td>
                             </tr>
 
                             <tr>
                                 <td align="right"><span class="red">*</span><strong>推广说明：</strong></td>
                                 <td>
-                                    <textarea id="promote_desc" name="promote_desc" style="width:540px; height: 160px;"></textarea>
+                                    <textarea id="promote_desc" name="promote_desc" style="width:540px; height: 160px;">${goods.promoteDesc}</textarea>
                                 </td>
                             </tr>
 
@@ -739,7 +771,7 @@
 
 
 <!--[if !IE]> -->
-<script src="../static/jquery-2.0.3.min.js"></script>
+<script src="static/jquery-2.0.3.min.js"></script>
 <!-- <![endif]-->
 <!--[if IE]>
 <script src="/customer/assets/js/jquery-1.10.2.min.js"></script>
@@ -757,24 +789,24 @@
 <script type="text/javascript">
     if("ontouchend" in document) document.write("<script src='/customer/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
 </script>
-<script src="../static/bootstrap.min.js"></script>
-<script src="../static/typeahead-bs2.min.js"></script>
+<script src="static/bootstrap.min.js"></script>
+<script src="static/typeahead-bs2.min.js"></script>
 <!-- page specific plugin scripts -->
 <!--[if lte IE 8]>
 <script src="/customer/assets/js/excanvas.min.js"></script>
 <![endif]-->
 
-<script src="../static/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="../static/jquery.ui.touch-punch.min.js"></script>
-<script src="../static/bootbox.min.js"></script>
-<script src="../static/jquery.gritter.min.js"></script>
+<script src="static/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="static/jquery.ui.touch-punch.min.js"></script>
+<script src="static/bootbox.min.js"></script>
+<script src="static/jquery.gritter.min.js"></script>
 
 <!-- ace scripts -->
-<script src="../static/ace-elements.min.js"></script>
-<script src="../static/ace.min.js"></script>
+<script src="static/ace-elements.min.js"></script>
+<script src="static/ace.min.js"></script>
 
-<script type="text/javascript" src="../static/WdatePicker.js"></script>
-<script type="text/javascript" src="../static/lhgdialog.min.js"></script>
+<script type="text/javascript" src="static/WdatePicker.js"></script>
+<script type="text/javascript" src="static/lhgdialog.min.js"></script>
 
 <script type="text/javascript">
     jQuery(function($) {
@@ -810,7 +842,7 @@
     var baseUrl = '';
     function submitData(){
         var gid = "";
-        var url = "cgood!saveGood.ct";
+        var url = "fxmall/goods.do?m=addGoods";
         //var spc_id = getRadioValue('scopy_id');
         var spc_ids = getCheckBoxValue('scopy_id');
         var zon_ids = getCheckBoxValue('zcopy_id');

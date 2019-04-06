@@ -6,15 +6,17 @@ import com.qianfeng.fxmall.goods.bean.WxbGood;
 import com.qianfeng.fxmall.goods.dao.IGoodsDAO;
 import com.qianfeng.fxmall.goods.mapper.GoodsMapper;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class GoodsDaoImpl implements IGoodsDAO {
 
     @Override
     public List<WxbGood> queryGoodsByPage(Integer page) throws Exception{
-        GoodsMapper goodsMapper = MyBatisSessionFactoryUtils.getSession().getMapper(GoodsMapper.class);
-        List<WxbGood> goods = goodsMapper.queryGoodsByPage(page, SystemConstantsUtils.Page.PAGE_SIZE);
+        SqlSession session = MyBatisSessionFactoryUtils.getSession();
+        List<WxbGood> goods = session.getMapper(GoodsMapper.class).queryGoodsByPage(page, SystemConstantsUtils.Page.PAGE_SIZE);
         return goods;
     }
 

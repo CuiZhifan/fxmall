@@ -3,12 +3,14 @@ package com.qianfeng.fxmall.commons.Servlet;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContext;
 
 /**
  * 自定义servlet的父类

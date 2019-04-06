@@ -101,4 +101,9 @@
         zon_Id = #{zonId},sell_Num = #{sellNum},website = #{website},iswxpay = #{iswxpay},isfdfk = #{isfdfk},
         leixing_Id = #{leixingId},kfqq = #{kfqq} where good_Id = #{goodId};
     </update>
+
+    <select id="queryGoodsById" resultMap="baseResultMap">
+        select  <include refid="params"/> from wxb_good where good_id = #{goodId}
+    </select>
+
 </mapper>

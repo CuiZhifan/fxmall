@@ -3,11 +3,35 @@ package com.qianfeng;
 import com.qianfeng.fxmall.goods.bean.WxbGood;
 import com.qianfeng.fxmall.goods.dao.IGoodsDAO;
 import com.qianfeng.fxmall.goods.dao.Impl.GoodsDaoImpl;
+import com.qianfeng.fxmall.goods.service.IGoodsService;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:spring.xml")
 public class TestDAO {
+
+//    @Autowired
+//    private IGoodsDAO dao;
+    @Autowired
+    private IGoodsService service;
+    @Test
+    public void testselect(){
+
+        try {
+            List<WxbGood> list = service.queryGoodsByPage(1);
+            System.out.println(list);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * 添加
@@ -16,7 +40,7 @@ public class TestDAO {
     public void testinsert(){
         WxbGood wxbGood = new WxbGood();
         wxbGood.setGoodId(UUID.randomUUID().toString().replace("-","").substring(0,10));
-        wxbGood.setGoodName("代码");
+        wxbGood.setGoodName("Python代码");
         wxbGood.setGoodPic("1.jpg");
         wxbGood.setGoodPic1("2.jpg");
         wxbGood.setGoodPic2("3.jpg");
@@ -31,9 +55,8 @@ public class TestDAO {
         wxbGood.setCreateTime(time);
         wxbGood.setToped(0);
         wxbGood.setRecomed(0);
-        IGoodsDAO Dao = new GoodsDaoImpl();
         try {
-            Dao.insertGoods(wxbGood);
+            service.insertGoods(wxbGood);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,7 +91,7 @@ public class TestDAO {
         wxbGood.setSkuCost("生命还不够吗");
         wxbGood.setSkuPrice("升职加薪赢取白富美");
         wxbGood.setSkuPmoney("二手白富美");
-        wxbGood.setTypeId(UUID.randomUUID().toString().replace("-","").substring(0,10));
+        wxbGood.setTypeId("0"+(new Random().nextInt(8)+1));
         wxbGood.setState(0);
         java.sql.Timestamp time = new java.sql.Timestamp(System.currentTimeMillis());
         wxbGood.setCreateTime(time);
@@ -80,5 +103,11 @@ public class TestDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testSelectById(){
+        WxbGood wxbGood = service.queryGoodsById("6298e76bee");
+        System.out.println(wxbGood);
     }
 }

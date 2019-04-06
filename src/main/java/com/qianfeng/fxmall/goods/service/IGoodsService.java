@@ -8,4 +8,6 @@ public interface IGoodsService {
     List<WxbGood> queryGoodsByPage(Integer page) throws Exception;
 
     void insertGoods(WxbGood wxbGood);
+
+    WxbGood queryGoodsById(String goodId);
 }

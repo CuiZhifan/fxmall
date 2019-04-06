@@ -5,6 +5,10 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   
+  <listener>
+    <listener-class>com.qianfeng.fxmall.commons.Listener.TomCatListener</listener-class>
+  </listener>
+  
   <servlet>
     <servlet-name>goodsServlet</servlet-name>
     <servlet-class>com.qianfeng.fxmall.goods.controller.GoodsServlet</servlet-class>
@@ -13,4 +17,5 @@
     <servlet-name>goodsServlet</servlet-name>
     <url-pattern>/goods.do</url-pattern>
   </servlet-mapping>
+
 </web-app>

@@ -1,10 +1,11 @@
 package com.qianfeng.fxmall.goods.mapper;
 
 import com.qianfeng.fxmall.goods.bean.WxbGood;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface GoodsMapper {
     /**
      * 分页查找
@@ -31,4 +32,10 @@ public interface GoodsMapper {
      * @param wxbGood   更新对象
      */
     void updateGoods(WxbGood wxbGood);
+
+    /**
+     * 根据Id查询商品
+     * @param goodId 商品Id
+     */
+    WxbGood queryGoodsById(@Param("goodId") String goodId);
 }
