@@ -313,4 +313,40 @@ public class WxbGood {
     this.kfqq = kfqq;
   }
 
+  @Override
+  public String toString() {
+    return "WxbGood{" +
+            "goodId='" + goodId + '\'' +
+            ", goodName='" + goodName + '\'' +
+            ", customerId='" + customerId + '\'' +
+            ", goodPic='" + goodPic + '\'' +
+            ", goodPic1='" + goodPic1 + '\'' +
+            ", goodPic2='" + goodPic2 + '\'' +
+            ", promoteDesc='" + promoteDesc + '\'' +
+            ", skuTitle='" + skuTitle + '\'' +
+            ", skuCost='" + skuCost + '\'' +
+            ", skuPrice='" + skuPrice + '\'' +
+            ", skuPmoney='" + skuPmoney + '\'' +
+            ", copyIds='" + copyIds + '\'' +
+            ", copyDesc='" + copyDesc + '\'' +
+            ", forwardLink='" + forwardLink + '\'' +
+            ", orderNo=" + orderNo +
+            ", typeId='" + typeId + '\'' +
+            ", tags='" + tags + '\'' +
+            ", state=" + state +
+            ", createTime=" + createTime +
+            ", toped=" + toped +
+            ", recomed=" + recomed +
+            ", topedTime=" + topedTime +
+            ", recomedTime=" + recomedTime +
+            ", spcId='" + spcId + '\'' +
+            ", zonId='" + zonId + '\'' +
+            ", sellNum=" + sellNum +
+            ", website='" + website + '\'' +
+            ", iswxpay=" + iswxpay +
+            ", isfdfk=" + isfdfk +
+            ", leixingId=" + leixingId +
+            ", kfqq='" + kfqq + '\'' +
+            '}';
+  }
 }

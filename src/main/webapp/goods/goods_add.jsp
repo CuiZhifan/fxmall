@@ -186,7 +186,7 @@
                         </li>
 
                         <li class="active">
-                            <a href="http://localhost:8081/cust/goods/add">
+                            <a href="goods/goods_add.jsp">
                                 <i class="icon-pencil"></i>
                                 增加商品
                             </a>
@@ -496,28 +496,28 @@
                                             </c:when>
                                             <c:otherwise>
                                                 <option value="${goods.typeId}">
-                                                    <c:if test="${goods.typeId}==01">
+                                                    <c:if test="${goods.typeId=='01'}">
                                                         保健品
                                                     </c:if>
-                                                    <c:if test="${goods.typeId}==01">
+                                                    <c:if test="${goods.typeId=='02'}">
                                                         饰品
                                                     </c:if>
-                                                    <c:if test="${goods.typeId}==01">
+                                                    <c:if test="${goods.typeId=='03'}">
                                                         护肤品
                                                     </c:if>
-                                                    <c:if test="${goods.typeId}==01">
+                                                    <c:if test="${goods.typeId=='04'}">
                                                         床上用品
                                                     </c:if>
-                                                    <c:if test="${goods.typeId}==01">
+                                                    <c:if test="${goods.typeId=='05'}">
                                                         生活用品
                                                     </c:if>
-                                                    <c:if test="${goods.typeId}==01">
+                                                    <c:if test="${goods.typeId=='06'}">
                                                         减肥产品
                                                     </c:if>
-                                                    <c:if test="${goods.typeId}==01">
+                                                    <c:if test="${goods.typeId=='07'}">
                                                         113
                                                     </c:if>
-                                                    <c:if test="${goods.typeId}==01">
+                                                    <c:if test="${goods.typeId=='08'}">
                                                         23
                                                     </c:if>
                                                 </option>

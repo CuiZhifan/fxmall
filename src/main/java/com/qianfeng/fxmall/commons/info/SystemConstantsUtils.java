@@ -17,6 +17,6 @@ public class SystemConstantsUtils {
         /**
          * 图片虚拟路径
          */
-        public final static String UPLOAD_PATH = "E:/images/";
+        public final static String UPLOAD_PATH = "E:/fxmallImages/";
     }
 }

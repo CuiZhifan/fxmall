@@ -27,7 +27,7 @@ public class TestDAO {
 
         try {
             List<WxbGood> list = service.queryGoodsByPage(1);
-            System.out.println(list);
+            System.out.println("结果"+list);
         } catch (Exception e) {
             e.printStackTrace();
         }
