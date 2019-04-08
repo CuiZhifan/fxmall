@@ -22,7 +22,7 @@ public class LogProxy {
             for(Object o:args){
                 stringBuilder.append(o.toString());
             }
-            logger.info("连接点类型"+kind+":值"+stringBuilder.toString());
+            logger.info("连接点类型"+kind+": 值"+stringBuilder.toString());
             Object proceed = joinPoint.proceed();
             logger.info("返回值："+proceed);
             logger.info("---------------------------------------------");
