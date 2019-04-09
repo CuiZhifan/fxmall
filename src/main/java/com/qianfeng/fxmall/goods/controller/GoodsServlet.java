@@ -6,13 +6,11 @@ import com.qianfeng.fxmall.commons.info.SystemConstantsUtils;
 import com.qianfeng.fxmall.goods.bean.WxbGood;
 import com.qianfeng.fxmall.goodssku.bean.WxbGoodSku;
 import com.qianfeng.fxmall.goods.service.IGoodsService;
-import com.qianfeng.fxmall.goods.service.Impl.GoodsServiceImpl;
 import com.qianfeng.fxmall.goodssku.service.IGoodsSkuService;
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,10 +21,11 @@ import java.util.UUID;
 
 public class GoodsServlet extends BaseServlet {
 //    ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
-    private IGoodsService service ;
+    private IGoodsService service = (IGoodsService) ApplicationContextUtils.getApplicationContext().getBean("goodsServiceImpl");
+    private IGoodsSkuService skuService = (IGoodsSkuService) ApplicationContextUtils.getApplicationContext().getBean("goodsSkuServiceImpl");
 
     public void selectGoods(HttpServletRequest req, HttpServletResponse resp){
-        service = (IGoodsService) ApplicationContextUtils.getApplicationContext().getBean("goodsServiceImpl");
+//        service = (IGoodsService) ApplicationContextUtils.getApplicationContext().getBean("goodsServiceImpl");
         String pageStr = req.getParameter("page");
         List<WxbGood> goods = null;
         try {
@@ -45,13 +44,13 @@ public class GoodsServlet extends BaseServlet {
     private void addSku(List<WxbGoodSku> list,int num){
         if(list.size()<num){
             WxbGoodSku wxbGoodSku = new WxbGoodSku();
-            wxbGoodSku.setSkuId(UUID.randomUUID().toString().replace("-",""));
+            wxbGoodSku.setSkuId(UUID.randomUUID().toString().substring(0,10).replace("-",""));
             list.add(wxbGoodSku);
         }
     }
 
-    @Autowired
-    private IGoodsSkuService skuService;
+
+
     public void addGoods(HttpServletRequest req, HttpServletResponse resp){
         try {
             WxbGood wxbGood = new WxbGood();
@@ -99,11 +98,11 @@ public class GoodsServlet extends BaseServlet {
                             jgNum++;
                         }else if(("fc"+fcNum).equals(item.getFieldName())){
                             addSku(list,fcNum);
-                            list.get(fcNum-1).setServiceMoney(value);
+                            list.get(fcNum-1).setSkuPmoney(value);
                             fcNum++;
                         }else if(("kffc"+kffcNUm).equals(item.getFieldName())){
                             addSku(list,kffcNUm);
-                            list.get(kffcNUm-1).setSkuName(value);
+                            list.get(kffcNUm-1).setServiceMoney(value);
                             kffcNUm++;
                         }
                         switch (item.getFieldName()) {
@@ -164,6 +163,7 @@ public class GoodsServlet extends BaseServlet {
 
                 for(WxbGoodSku sku:list){
                     sku.setGoodId(wxbGood.getGoodId());
+//                    skuService = (IGoodsSkuService) ApplicationContextUtils.getApplicationContext().getBean("goodsSkuServiceImpl");
                     skuService.insertGoodsSku(sku);
                 }
             }
@@ -179,6 +179,11 @@ public class GoodsServlet extends BaseServlet {
         String id = req.getParameter("good_id");
         WxbGood goods = service.queryGoodsById(id);
         req.setAttribute("goods",goods);
+        List<WxbGoodSku> list = skuService.selectByGoodsId(id);
+        list.forEach((d)-> System.out.println(d));
+        System.out.println("---------------------1111---------------------");
+        req.setAttribute("goodsskus",list);
+        req.setAttribute("size",list.size());
         try {
             req.getRequestDispatcher("goods/goods_add.jsp").forward(req,resp);
         } catch (Exception e) {

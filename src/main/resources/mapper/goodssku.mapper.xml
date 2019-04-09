@@ -4,10 +4,29 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qianfeng.fxmall.goodssku.mapper.GoodsSkuMapper">
 
+    <resultMap id="baseResultMap" type="com.qianfeng.fxmall.goodssku.bean.WxbGoodSku">
+        <id property="skuId" column="sku_id" javaType="java.lang.String"/>
+        <result property="skuName" column="sku_name" javaType="java.lang.String"/>
+        <result property="skuCost" column="sku_cost" javaType="java.lang.String"/>
+        <result property="skuPrice" column="sku_price" javaType="java.lang.String"/>
+        <result property="skuPmoney" column="sku_pmoney" javaType="java.lang.String"/>
+        <result property="goodId" column="good_id" javaType="java.lang.String"/>
+        <result property="orderNo" column="order_no" javaType="java.lang.Long"/>
+        <result property="serviceMoney" column="service_money" javaType="java.lang.String"/>
+    </resultMap>
+
     <insert id="insertGoodsSku">
         INSERT INTO `wxb_good_sku` VALUES (
           #{skuId},#{skuName},#{skuCost},#{skuPrice},#{skuPmoney},
           #{goodId},#{orderNo},#{serviceMoney}
         );
     </insert>
+
+    <sql id="params">
+        sku_id,sku_name,sku_cost,sku_price,sku_pmoney,good_id,order_no,service_money
+    </sql>
+
+    <select id="selectByGoodsId" resultMap="baseResultMap">
+        select <include refid="params"/> from `wxb_good_sku` where good_id = #{goodId}
+    </select>
 </mapper>

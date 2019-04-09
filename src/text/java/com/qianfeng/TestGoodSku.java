@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
 import java.util.UUID;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,5 +30,11 @@ public class TestGoodSku {
         wxbGoodSku.setServiceMoney("6");
         service.insertGoodsSku(wxbGoodSku);
         System.out.println(wxbGoodSku);
+    }
+
+    @Test
+    public void testSelectByGoodId(){
+        List<WxbGoodSku> list = service.selectByGoodsId("73515420");
+        list.forEach((d)-> System.out.println(d));
     }
 }

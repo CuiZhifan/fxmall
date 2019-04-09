@@ -561,7 +561,7 @@
                                 <td>
                                     <div id="sm_div">
 
-                                        <img src="./static/no_pic.png" id="sm_yl" style="width:240px;height:150px;border:1px solid #ddd;">
+                                        <img src="http://localhost:8080/fxmallImages/${goods.goodPic}" id="sm_yl" style="width:240px;height:150px;border:1px solid #ddd;">
 
 
                                     </div>
@@ -579,7 +579,7 @@
                                 <td>
                                     <div id="sm_div1">
 
-                                        <img src="./static/no_pic.png" id="sm_yl1" style="width:240px;height:150px;border:1px solid #ddd;">
+                                        <img src="http://localhost:8080/fxmallImages/${goods.goodPic1}" id="sm_yl1" style="width:240px;height:150px;border:1px solid #ddd;">
 
 
                                     </div>
@@ -597,7 +597,7 @@
                                 <td>
                                     <div id="sm_div2">
 
-                                        <img src="./static/no_pic.png" id="sm_yl2" style="width:240px;height:150px;border:1px solid #ddd;">
+                                        <img src="http://localhost:8080/fxmallImages/${goods.goodPic2}" id="sm_yl2" style="width:240px;height:150px;border:1px solid #ddd;">
 
 
                                     </div>
@@ -628,9 +628,17 @@
                                             <th align="left" style="background-color:#F9F9F9">(<font color="red">*</font>)分成</th>
                                             <th align="left" style="background-color:#F9F9F9">(<font color="red">*</font>)客服提成</th>
                                         </tr>
-
-
-
+                                        <c:if test="${size>0}">
+                                            <c:forEach var="sku" items="${goodsskus}">
+                                                <tr>
+                                                    <td><input id="sku" name="sku" type="text" style="width:200px" value="${sku.skuName}" /></td>
+                                                    <td><input id="cb" onkeyup="checkVal(this);" name="cb" style="width:200px" type="text" value="${sku.skuCost}" /></td>
+                                                    <td><input id="jg" onkeyup="checkVal(this);" name="jg" style="width:200px" type="text" value="${sku.skuPrice}" /></td>
+                                                    <td><input id="fc" onkeyup="checkVal(this);" name="fc" style="width:200px" type="text" value="${sku.skuPmoney}" /></td>
+                                                    <td><input id="kffc" onkeyup="checkVal(this);" name="kffc" style="width:200px" type="text" value="${sku.serviceMoney}" /></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </c:if>
                                         </tbody></table>
 
 
@@ -650,10 +658,7 @@
                             <tr>
                                 <td align="right"><span class="red">*</span><strong>商品标签：</strong></td>
                                 <td>
-
-
-
-
+                                    <span id="TAGS" style="display:none">${goods.tags}</span>
                                     <label>
                                         <input type="checkbox" class="ace" id="1" name="tags" value="1">
                                         <span class="lbl">
@@ -696,7 +701,7 @@
                                 <td align="right"><span class="red">*</span><strong>微信文案：</strong></td>
                                 <td>
 
-
+                                    <span id="GCOPY" style="display:none">${goods.copyIds}</span>
                                     <input type="checkbox" class="ace" id="copy_1887427" name="gcopy" value="1887427">
                                     <span class="lbl">&nbsp;<a href="http://localhost:8081/cust/goods/add#">11</a></span><br>
 
@@ -980,7 +985,7 @@
         return commonLoad("cust/goods/check",param,"post");
     }
 
-    var tags = "";
+    var tags = document.getElementById("TAGS").innerText;
     if(tags!=""){
         var com_obj = document.getElementsByName("tags");
         for(var j=0;j<com_obj.length;j++){
@@ -993,7 +998,7 @@
         }
     }
 
-    var copys = "";
+    var copys = document.getElementById("GCOPY").innerText;
     if(copys!=""){
         var com_obj = document.getElementsByName("gcopy");
         for(var j=0;j<com_obj.length;j++){
