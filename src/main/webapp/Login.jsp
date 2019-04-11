@@ -414,9 +414,10 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_307679'%3E%3C/span%3E%3Cscri
                 data: data,
                 dataType: 'text',
                 success: function (response) {
-                    alert(response);
-                    var suc = response.code;
-                    var msg = response.msg;
+                    var obj = JSON.parse(response);
+                    alert(obj);
+                    var suc = obj.code;
+                    var msg = obj.msg;
                     loading.revert();
                     if (suc == 'true') {
                         submitBtn.unbind('click');
