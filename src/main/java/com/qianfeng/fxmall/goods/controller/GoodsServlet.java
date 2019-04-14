@@ -180,8 +180,6 @@ public class GoodsServlet extends BaseServlet {
         WxbGood goods = service.queryGoodsById(id);
         req.setAttribute("goods",goods);
         List<WxbGoodSku> list = skuService.selectByGoodsId(id);
-        list.forEach((d)-> System.out.println(d));
-        System.out.println("---------------------1111---------------------");
         req.setAttribute("goodsskus",list);
         req.setAttribute("size",list.size());
         try {

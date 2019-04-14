@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <base href="${basePath}">
 <!-- saved from url=(0037)http://localhost:8081/cust/goods/list -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="static/default.css" rel="stylesheet" id="lhgdialoglink">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="../static/default.css" rel="stylesheet" id="lhgdialoglink">
 
     <title>商品信息管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,37 +18,37 @@
 
     <link rel="shortcut icon" href="http://localhost:8081/wxb/images/favicon.ico">
     <link rel="icon" type="image/gif" href="http://localhost:8081/wxb/images/favicon.gif">
-    <link href="static/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/font-awesome.min.css">
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/font-awesome.min.css">
     <!--[if IE 7]>
     <link rel="stylesheet" href="/customer/assets/css/font-awesome-ie7.min.css" />
     <![endif]-->
-    <link rel="stylesheet" href="static/font.css">
-    <link rel="stylesheet" href="static/ace.min.css">
-    <link rel="stylesheet" href="static/ace-rtl.min.css">
-    <link rel="stylesheet" href="static/jquery-ui-1.10.3.custom.min.css">
-    <link rel="stylesheet" href="static/jquery.gritter.css">
+    <link rel="stylesheet" href="../static/font.css">
+    <link rel="stylesheet" href="../static/ace.min.css">
+    <link rel="stylesheet" href="../static/ace-rtl.min.css">
+    <link rel="stylesheet" href="../static/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="../static/jquery.gritter.css">
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="/customer/assets/css/ace-ie.min.css" />
     <![endif]-->
-    <link type="text/css" rel="stylesheet" href="static/public.css">
+    <link type="text/css" rel="stylesheet" href="../static/public.css">
 
-    <script src="static/ace-extra.min.js"></script>
+    <script src="../static/ace-extra.min.js"></script>
     <!--[if lt IE 9]>
     <script src="/customer/assets/js/html5shiv.js"></script>
     <script src="/customer/assets/js/respond.min.js"></script>
     <![endif]-->
 
     <!-- 系统共用js文件 -->
-    <link rel="stylesheet" type="text/css" href="static/ymPrompt.css">
-    <script type="text/javascript" src="static/ymPrompt.js"></script>
-    <script type="text/javascript" src="static/public.js"></script>
-    <script type="text/javascript" src="static/publics.js"></script>
-    <script type="text/javascript" src="static/table.js"></script>
-    <script type="text/javascript" src="static/vdata.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/ymPrompt.css">
+    <script type="text/javascript" src="../static/ymPrompt.js"></script>
+    <script type="text/javascript" src="../static/public.js"></script>
+    <script type="text/javascript" src="../static/publics.js"></script>
+    <script type="text/javascript" src="../static/table.js"></script>
+    <script type="text/javascript" src="../static/vdata.js"></script>
 
     <!-- head over-->
-    <link href="static/WdatePicker.css" rel="stylesheet" type="text/css"></head>
+    <link href="../static/WdatePicker.css" rel="stylesheet" type="text/css"></head>
 
 <body style=""><div class="" style="left: 0px; top: 0px; visibility: hidden; position: absolute;"><table class="ui_border"><tbody><tr><td class="ui_lt"></td><td class="ui_t"></td><td class="ui_rt"></td></tr><tr><td class="ui_l"></td><td class="ui_c"><div class="ui_inner"><table class="ui_dialog"><tbody><tr><td colspan="2"><div class="ui_title_bar"><div class="ui_title" unselectable="on" style="cursor: move;"></div><div class="ui_title_buttons"><a class="ui_min" href="javascript:void(0);" title="最小化" style="display: inline-block;"><b class="ui_min_b"></b></a><a class="ui_max" href="javascript:void(0);" title="最大化" style="display: inline-block;"><b class="ui_max_b"></b></a><a class="ui_res" href="javascript:void(0);" title="还原"><b class="ui_res_b"></b><b class="ui_res_t"></b></a><a class="ui_close" href="javascript:void(0);" title="关闭(esc键)" style="display: inline-block;">×</a></div></div></td></tr><tr><td class="ui_icon" style="display: none;"></td><td class="ui_main" style="width: auto; height: auto;"><div class="ui_content" style="padding: 10px;"></div></td></tr><tr><td colspan="2"><div class="ui_buttons" style="display: none;"></div></td></tr></tbody></table></div></td><td class="ui_r"></td></tr><tr><td class="ui_lb"></td><td class="ui_b"></td><td class="ui_rb" style="cursor: se-resize;"></td></tr></tbody></table></div>
 <div class="navbar navbar-default" id="navbar">
@@ -73,7 +73,7 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="http://localhost:8081/cust/goods/list#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="static/user.jpg" alt="Jason's Photo">
+                        <img class="nav-user-photo" src="../static/user.jpg" alt="Jason's Photo">
                         <span class="user-info">
 									<small>欢迎您,</small>
 									123456
@@ -186,7 +186,7 @@
                         </li>
 
                         <li>
-                            <a href="goods/goods_add.jsp">
+                            <a href="/fxmall/goods/goods_add.jsp">
                                 <i class="icon-pencil"></i>
                                 增加商品
                             </a>
@@ -491,7 +491,7 @@
                                         <c:forEach var="goods" items="${goodsList}">
                                         <tr>
                                             <td class="center">${goods.goodId}</td>
-                                            <td class="left"><a href="goods.do?m=selectGoodById&good_id=${goods.goodId}" onclick="window.location.href='goods.do?m=selectGoodById&good_id=${goods.goodId}'">${goods.goodName}</a></td>
+                                            <td class="left"><a href="/fxmall/Goods/GoodsInfo?good_id=${goods.goodId}" onclick="window.location.href='/fxmall/Goods/GoodsInfo?good_id?good_id=${goods.goodId}'">${goods.goodName}</a></td>
                                             <td class="center">${goods.skuCost}</td>
                                             <td class="center">${goods.skuPmoney}</td>
                                             <td class="center">${goods.createTime}</td>
@@ -534,8 +534,8 @@
                                         <div class="col-sm-6">
                                             <div class="dataTables_paginate paging_bootstrap sender">
                                                 <ul class="pagination">
-                                                    <li><a href="goods.do?m=selectGoods&page=1" class="active">1</a></li>
-                                                    <li><a href="goods.do?m=selectGoods&page=2">2</a></li>
+                                                    <li><a href="/fxmall/Goods/GoodsList?page=1" class="active">1</a></li>
+                                                    <li><a href="/fxmall/Goods/GoodsList?page=2">2</a></li>
                                                 </ul>
 
 
@@ -562,7 +562,7 @@
 
 
         <!--[if !IE]> -->
-        <script src="static/jquery-2.0.3.min.js"></script>
+        <script src="../static/jquery-2.0.3.min.js"></script>
         <!-- <![endif]-->
         <!--[if IE]>
         <script src="/customer/assets/js/jquery-1.10.2.min.js"></script>
@@ -580,24 +580,24 @@
         <script type="text/javascript">
             if("ontouchend" in document) document.write("<script src='/customer/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
         </script>
-        <script src="static/bootstrap.min.js"></script>
-        <script src="static/typeahead-bs2.min.js"></script>
+        <script src="../static/bootstrap.min.js"></script>
+        <script src="../static/typeahead-bs2.min.js"></script>
         <!-- page specific plugin scripts -->
         <!--[if lte IE 8]>
         <script src="/customer/assets/js/excanvas.min.js"></script>
         <![endif]-->
 
-        <script src="static/jquery-ui-1.10.3.custom.min.js"></script>
-        <script src="static/jquery.ui.touch-punch.min.js"></script>
-        <script src="static/bootbox.min.js"></script>
-        <script src="static/jquery.gritter.min.js"></script>
+        <script src="../static/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="../static/jquery.ui.touch-punch.min.js"></script>
+        <script src="../static/bootbox.min.js"></script>
+        <script src="../static/jquery.gritter.min.js"></script>
 
         <!-- ace scripts -->
-        <script src="static/ace-elements.min.js"></script>
-        <script src="static/ace.min.js"></script>
+        <script src="../static/ace-elements.min.js"></script>
+        <script src="../static/ace.min.js"></script>
 
-        <script type="text/javascript" src="static/WdatePicker.js"></script>
-        <script type="text/javascript" src="static/lhgdialog.min.js"></script>
+        <script type="text/javascript" src="../static/WdatePicker.js"></script>
+        <script type="text/javascript" src="../static/lhgdialog.min.js"></script>
 
         <script type="text/javascript">
             jQuery(function($) {

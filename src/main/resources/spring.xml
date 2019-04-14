@@ -6,19 +6,23 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!--扫描文件地址-->
     <constant:component-scan base-package="
     com.qianfeng.fxmall.commons.mybatis,
     com.qianfeng.fxmall.goods.dao,
     com.qianfeng.fxmall.goods.service,
     com.qianfeng.fxmall.goodssku.service,
-    com.qianfeng.fxmall.User.Controller,
     com.qianfeng.fxmall.User.service,
+    com.qianfeng.fxmall.goods.controller,
+    com.qianfeng.fxmall.User.Controller,
     com.qianfeng.fxmall.commons.Spring"/>
 
     <aop:aspectj-autoproxy/>
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
 
+
+    <!--扫描Mapper地址-->
     <bean id="mapperScan" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="
         com.qianfeng.fxmall.goods.mapper,
@@ -43,6 +47,7 @@
         <property name="mapperLocations" value="classpath:mapper/*.mapper.xml"/>
     </bean>
 
+    <!--自动注入对象-->
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
@@ -51,7 +56,28 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <!--返回对象时自动转Json-->
     <bean id="objectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean"
           p:indentOutput="true"
           p:simpleDateFormat="yyyy-MM-dd"/>
+
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/static/**"/>
+            <mvc:exclude-mapping path="/font/**"/>
+            <bean class="com.qianfeng.fxmall.User.Intercepter.PermissionIntercepter"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!--上传文件-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+        <!--设置上传文件的最大大小，单位byte，比如100000代表100KB-->
+        <!-- one of the properties available; the maximum file size in bytes -->
+        <property name="maxUploadSize" value="3000000"/>
+
+    </bean>
 </beans>

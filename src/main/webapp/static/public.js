@@ -1109,14 +1109,14 @@ return path.substring(path.lastIndexOf("\\")+1,path.lastIndexOf("."));
 function setPreview(obj,mid,did,w,h) {
        var imgObjPreview=document.getElementById(mid);
        if(obj.files && obj.files[0]){
-               //火狐下，直接设img属性
+               //火狐下，
                imgObjPreview.style.display = 'block';
                imgObjPreview.style.width = w+"px";
                imgObjPreview.style.height = h+'px';                    
                //imgObjPreview.src = docObj.files[0].getAsDataURL();
 		       //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式  
 		       imgObjPreview.src = window.URL.createObjectURL(obj.files[0]);
-       }else{
+       }else{直接设img属性
                //IE下，使用滤镜
                obj.select();
                var imgSrc = document.selection.createRange().text;

@@ -6,7 +6,6 @@ import com.qianfeng.fxmall.User.bean.WxbMemeber;
 import com.qianfeng.fxmall.User.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,6 +25,7 @@ public class UserController {
         JsonResultVO jsonResultVO = new JsonResultVO();
         try {
             memeber = service.login(userInfoVO);
+            session.setAttribute("login",memeber);
             jsonResultVO.setCode("true");
             jsonResultVO.setMsg("干得漂亮");
         } catch (Exception e) {

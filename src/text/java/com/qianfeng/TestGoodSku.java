@@ -37,4 +37,10 @@ public class TestGoodSku {
         List<WxbGoodSku> list = service.selectByGoodsId("73515420");
         list.forEach((d)-> System.out.println(d));
     }
+
+    @Test
+    public void testStringToObj(){
+        List<WxbGoodSku> list = service.StringToObj("newid|1|1|1|1|1|$newid|2|2|2|2|2|$newid|3|3|3|3|3|$");
+        System.out.println(list);
+    }
 }

@@ -19,7 +19,9 @@ public class LogProxy {
             Object[] args = joinPoint.getArgs();
             StringBuilder stringBuilder = new StringBuilder();
             for(Object o:args){
-                stringBuilder.append(o.toString());
+                if(o!=null){
+                    stringBuilder.append(o.toString());
+                }
             }
             logger.info("连接点类型"+kind+": 值"+stringBuilder.toString());
             Object proceed = joinPoint.proceed();

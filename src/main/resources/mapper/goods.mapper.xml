@@ -8,63 +8,34 @@
         <id property="goodId" column="good_id"/>
         <result property="goodName" column="good_name"/>
         <result property="customerId" column="customer_id"/>
-
         <result property="goodPic" column="good_pic"/>
-
         <result property="goodPic1" column="good_pic1"/>
-
         <result property="goodPic2" column="good_pic2"/>
-
         <result property="promoteDesc" column="promote_desc"/>
-
         <result property="skuTitle" column="sku_title"/>
-
         <result property="skuCost" column="sku_cost"/>
-
         <result property="skuPrice" column="sku_price"/>
-
         <result property="skuPmoney" column="sku_pmoney"/>
-
         <result property="copyIds" column="copy_ids"/>
-
         <result property="copyDesc" column="copy_desc"/>
-
         <result property="forwardLink" column="forward_link"/>
-
         <result property="orderNo" column="order_no"/>
-
         <result property="typeId" column="type_id"/>
-
         <result property="tags" column="tags"/>
-
         <result property="state" column="state"/>
-
         <result property="createTime" column="create_time"/>
-
         <result property="toped" column="toped"/>
-
         <result property="recomed" column="recomed"/>
-
         <result property="topedTime" column="toped_time"/>
-
         <result property="recomedTime" column="recomed_time"/>
-
         <result property="spcId" column="spc_id"/>
-
         <result property="zonId" column="zon_id"/>
-
         <result property="sellNum" column="sell_num"/>
-
         <result property="website" column="website"/>
-
         <result property="iswxpay" column="iswxpay"/>
-
         <result property="isfdfk" column="isfdfk"/>
-
         <result property="leixingId" column="leixing_id"/>
-
         <result property="kfqq" column="kfqq" />
-
     </resultMap>
 
     <!--sql标签用来定义SQL语句，或者是部分SQL语句-->

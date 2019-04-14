@@ -8,4 +8,6 @@ public interface IGoodsSkuService {
     void insertGoodsSku(WxbGoodSku wxbGoodSku);
 
     List<WxbGoodSku> selectByGoodsId(String goodId);
+
+    List<WxbGoodSku> StringToObj(String sku_str);
 }
